@@ -1,2 +1,2 @@
 class TestSettings:
-    page_url = "https://tapshop.pl"
+    page_url = 'https://tapsshop.pl'

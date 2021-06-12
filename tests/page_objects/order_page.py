@@ -1,7 +1,6 @@
 from tests.helpers.support_functions import *
 from selenium.webdriver.support.select import Select
 from tests.helpers.DataGenerator import *
-from time import sleep
 
 name = 'billing_first_name'
 surname = 'billing_last_name'
@@ -12,6 +11,7 @@ city = 'billing_city'
 phone = 'billing_phone'
 email = 'billing_email'
 place_order_button = 'place_order'
+total_amount = '//*[@id="order_review"]/table/tfoot/tr[4]/td/strong/span/bdi'
 
 valid_postcode = '00-123'
 invalid_postcode = 'abc'
@@ -103,8 +103,18 @@ def proper_fill_all_form_areas(driver_instance):
     form_add_proper_phone(driver_instance)
     form_add_proper_email(driver_instance)
 
+
 def submit_order(driver_instance):
     elem = driver_instance.find_element_by_id(place_order_button)
     elem.click()
+
+
+def check_total_price(driver_instance):
+    wait_for_visibility_of_element_xpath(driver_instance, total_amount)
+    elem = driver_instance.find_element_by_xpath(total_amount)
+    print(f"Order page price: {elem.text}")
+    return elem.text
+
+
 
 

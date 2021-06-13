@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_objects import main_page, belt_page
+from tests.page_objects import main_page, belt_page, shop_page
 
 
 class Tests(unittest.TestCase):
@@ -37,3 +37,10 @@ class Tests(unittest.TestCase):
         Tests.test2_change_product_quantity(self)
         belt_page.go_to_cart(self.driver)
         self.assertTrue(belt_page.add_valid_coupon(self.driver))
+
+    def test4_add_opinion(self):
+        main_page.go_to_shop_page(self.driver)
+        shop_page.go_to_belt_page(self.driver)
+        belt_page.add_opinion(self.driver)
+
+

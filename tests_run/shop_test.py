@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_objects import main_page
+from tests.page_objects import main_page, shop_page
 
 
 class Tests(unittest.TestCase):
@@ -14,14 +14,7 @@ class Tests(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    def test1_search_incorrect_product(self):
-        self.assertTrue(main_page.search_invalid_product(self.driver))
-
-    def test2_search_correct_product(self):
-        self.assertTrue(main_page.search_valid_product(self.driver))
-
-
-
-
-
+    def test1_sort_products(self):
+        main_page.go_to_shop_page(self.driver)
+        self.assertTrue(shop_page.sort_products(self.driver))
 

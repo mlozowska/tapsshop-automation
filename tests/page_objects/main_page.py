@@ -7,9 +7,9 @@ cart_page_header_link = "menu-item-99"
 add_hoodie_to_cart = '//*[@id="post-83"]/div/div[3]/ul/li[3]/div[2]/a'
 go_to_cart_under_item = '//*[@id="post-83"]/div/div[3]/ul/li[3]/div[2]/a[2]'
 cart_button_header = 'site-header-cart'
-
 search_bar = 'woocommerce-product-search-field-0'
 not_found_message = '//*[@id="main"]/p'
+shop_page_header_link = '//*[@id="menu-item-102"]/a'
 
 
 def taps_logo_visible(driver_instance):
@@ -49,7 +49,11 @@ def search_valid_product(driver_instance):
     elem.send_keys(Keys.RETURN)
 
 
+def go_to_shop_page(driver_instance):
+    wait_for_visibility_of_element_xpath(driver_instance, shop_page_header_link)
+    elem = driver_instance.find_element_by_xpath(shop_page_header_link)
+    elem.click()
 
 
 
-#  search belt, zoom it, take screenshot, check opinion - does not exist , add opinion
+

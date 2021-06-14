@@ -57,3 +57,4 @@ def go_to_shop_page(driver_instance):
 
 
 
+

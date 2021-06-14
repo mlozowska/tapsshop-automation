@@ -23,7 +23,7 @@ class Tests(unittest.TestCase):
         main_page.add_item_to_cart(self.driver)
         main_page.go_to_cart_page(self.driver)
         self.assertTrue(cart_page.check_item_in_cart(self.driver))
-        cart_page.remove_item_from_cart_button(self.driver)
+        cart_page.remove_item_from_cart(self.driver)
         self.assertTrue(cart_page.check_item_not_in_cart(self.driver))
 
 

@@ -11,7 +11,7 @@ def check_item_in_cart(driver_instance):
 
 
 def remove_item_from_cart(driver_instance):
-    elem = driver_instance.find_element_xpath(remove_item_from_cart_button)
+    elem = driver_instance.find_element_by_xpath(remove_item_from_cart_button)
     elem.click()
 
 

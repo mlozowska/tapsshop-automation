@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from config.test_settings import TestSettings
-from tests.page_objects import main_page
+from tests.page_objects import main_page, belt_page
 
 
 class Tests(unittest.TestCase):
@@ -18,10 +18,12 @@ class Tests(unittest.TestCase):
         self.assertTrue(main_page.search_invalid_product(self.driver))
 
     def test2_search_correct_product(self):
-        self.assertTrue(main_page.search_valid_product(self.driver))
+        main_page.search_valid_product(self.driver)
+        self.assertTrue(belt_page.product_content_visible(self.driver))
 
 
-
+if __name__ == '__main__':
+    unittest.main()
 
 
 

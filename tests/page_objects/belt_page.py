@@ -1,12 +1,11 @@
 from tests.helpers.support_functions import *
 from tests.helpers.DataGenerator import *
-from time import sleep
 
-product_name = '//*[@id="product-47"]/div[2]/h1'
+belt_name = '//*[@id="product-47"]/div[2]/h1'
+belt_content = 'product-47'
 product_picture = '//*[@id="product-47"]/div[1]/figure/div/img'
 zoom_button = '//*[@id="product-47"]/div[1]/a'
-quantity_field = 'quantity_60c6417e9023a'
-add_to_cart = '//*[@id="product-47"]/div[2]/form/button'
+
 cart_button = '//*[@id="content"]/div/div[1]/div/a'
 coupon_field = 'coupon_code'
 apply_coupon_button = '//*[@id="post-7"]/div/div/form/table/tbody/tr[2]/td/div/button'
@@ -23,8 +22,14 @@ published_opinion = 'comment-229'
 
 
 def product_name_visible(driver_instance):
-    wait_for_visibility_of_element_xpath(driver_instance, product_name)
-    elem = driver_instance.find_element_by_xpath(product_name)
+    wait_for_visibility_of_element_xpath(driver_instance, belt_name)
+    elem = driver_instance.find_element_by_xpath(belt_name)
+    return elem.is_displayed()
+
+
+def product_content_visible(driver_instance):
+    wait_for_visibility_of_element_id(driver_instance, belt_content)
+    elem = driver_instance.find_element_by_id(belt_content)
     return elem.is_displayed()
 
 
@@ -32,15 +37,6 @@ def take_product_screenshot(driver_instance):
     elem = driver_instance.find_element_by_xpath(zoom_button)
     elem.click()
     driver_instance.save_screenshot("C:/Users/Administrator/PycharmProjects/tapsshop-automation/screenshot/belt_picture.png")
-
-
-def change_product_quantity(driver_instance):
-    wait_for_visibility_of_element_xpath(driver_instance, quantity_field)
-    elem = driver_instance.find_element_by_id(quantity_field)
-    elem.clear()
-    elem.send_keys(3)
-    elem2 = driver_instance.find_element_by_xpath(add_to_cart)
-    elem2.click()
 
 
 def go_to_cart(driver_instance):

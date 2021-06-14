@@ -12,5 +12,7 @@ Test Automation of the most common user's paths:
 - checking out of stock product
 - e-shop navigation 
 
-
-
+---
+## Pre-requisites: 
+- packages to be installed: selenium, webdriver-manager (Pycharm)
+- Python tests configuration - unittests
